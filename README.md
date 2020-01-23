@@ -30,5 +30,19 @@
         1. className 으로 설정을 해야한다
         2. App.js 에서 import 하여 사용한다
     - 주석은 중괄호로 감싸서 표시한다.
-   
 
+### 04. props
+    -  properties의 줄임말 어떤 값을 컴포넌트에게 전달 해 줘야할때 props 사용
+    -  name
+        1. 렌더링시 name 이라는 값을 전달 해 주고 싶다면 <hello name="hansaem">
+        2. hello 컴포넌트에서 props로 받아온다 ex)function hello(props)
+        3. {props.name}으로 조회
+    - color
+        1. App.js 에서 color 값을 설정 <hello name="hansgaem" color="red">
+        2. hello 컴포넌트에서 color 값을 조회 <div style= {{color: props.color}}>
+        3. {{객체}객체를 감싸는 중괄호}
+    - 비구조화 할당(구조분해) - {color, name}을 먼저 추출하여 props.을 중복입력하지 않아도 된다.
+    - 프롭스를 지정하지 않았을 때 기본적으로 사용 할 값 정하는 방법 : defaultProps = '...' 
+    - props.children
+        1. 컴포넌트 태그와 태그 사이에 넣은 값을 조회할때 사용
+        2. Wrapper({ children }) 프롭스로 받아와서 조회
