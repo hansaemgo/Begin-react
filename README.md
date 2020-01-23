@@ -59,6 +59,7 @@
     - Hook은 React 16.8에 새로 추가된 기능으로 클래스를 작성하지 않고도 state와 다른 React의 기능을 사용할수 있게 해준다. (하위 호환성이 있음) 
     - 후크를 사용하여 구성요소 계층 구조를 변경하지 않고 상태 저장 논리를 재사용 할 수 있다.
     - 사용자 인터랙션(상호작용)에 따라 값이 바뀔때, 구현하는 방법 
+  
     - useState
         1. 리액트 Hooks 중 하나
         2. 함수형 컴포넌트에서 상태관리 가능 바뀌는 값을 관리 할 수 있다. 
@@ -66,9 +67,15 @@
         4.  const [number, setNumber] = useState(0); 첫번째 원소:number,  두번째 원소:setNumber
         5.  setNumber : 현재상태를 업데이트 하는함수 setNumber(); 
         6.  setNumber(prevNumber => PrevNumber +1 ):값을 업데이트하는 함수를 넣어주어 최적화시킴
-
+   
     - Counter.js
         1. 화면에 표시되는 UI 만들고 expor 후 App에서 렌더링
         2. Counter 컴포넌트에서 onIncrease, ondecrease 버튼 클릭 이벤트 연걸
         3. 버튼에 onClick이벤트 설정시 함수호출하는 것이 아니다 onClick={onIncrease()} X
+   
+### 07. input 상태 관리하기
+    -  onChange 이벤트를 사용하여 input박스가 비워지도록 한다.
+    -  ohChange = (e) 이벤트 객체 e를 파라미터로 받아와서 사용 (e.target.value)는 이벤트가 발생한 DOM 객체인 input에 입력된 내용이다.
+    -  e.target.value를 를 조회하면 현재 input에 입력한 값이 무엇인지 알수 있다
+    -   onReset 과 초기화 버튼 연결하여 빈칸으로 만들어 줄 수 있게 한다.
     
