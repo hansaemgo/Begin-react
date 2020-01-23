@@ -79,3 +79,6 @@
     -  e.target.value를 를 조회하면 현재 input에 입력한 값이 무엇인지 알수 있다
     -   onReset 과 초기화 버튼 연결하여 빈칸으로 만들어 줄 수 있게 한다.
     
+### 08. 여러개의 Input 관리하기
+    - useState, onChange를 많이 사용해서 관리하는 것이 좋지않다.
+    - 
