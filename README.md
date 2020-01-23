@@ -54,3 +54,21 @@
         3. 특정조건에 따라 보여줘야하는 내용이 다를때 보통 삼항연산자 사용
         4. true와 false만 구분해야 하는 경우는 && 등 논리 연산자 
         5. isSpecial = {true}의 경우 true 생략하면 기본값 true
+
+### 06. useState를 통한 동적 상태관리
+    - Hook은 React 16.8에 새로 추가된 기능으로 클래스를 작성하지 않고도 state와 다른 React의 기능을 사용할수 있게 해준다. (하위 호환성이 있음) 
+    - 후크를 사용하여 구성요소 계층 구조를 변경하지 않고 상태 저장 논리를 재사용 할 수 있다.
+    - 사용자 인터랙션(상호작용)에 따라 값이 바뀔때, 구현하는 방법 
+    - useState
+        1. 리액트 Hooks 중 하나
+        2. 함수형 컴포넌트에서 상태관리 가능 바뀌는 값을 관리 할 수 있다. 
+        3. 상단에서 {useState}불러오기
+        4.  const [number, setNumber] = useState(0); 첫번째 원소:number,  두번째 원소:setNumber
+        5.  setNumber : 현재상태를 업데이트 하는함수 setNumber(); 
+        6.  setNumber(prevNumber => PrevNumber +1 ):값을 업데이트하는 함수를 넣어주어 최적화시킴
+
+    - Counter.js
+        1. 화면에 표시되는 UI 만들고 expor 후 App에서 렌더링
+        2. Counter 컴포넌트에서 onIncrease, ondecrease 버튼 클릭 이벤트 연걸
+        3. 버튼에 onClick이벤트 설정시 함수호출하는 것이 아니다 onClick={onIncrease()} X
+    
