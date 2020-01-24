@@ -9,19 +9,39 @@ function InputSample () {
     const {name, nickname} = inputs;
  
     const onChange = (e) => {
- 
-    }
+        const  { name , value } = e.target;
+         // console.log(e.target.name);  네임값
+         // console.log(e.target.value);  닉네임값 
+       setInputs ({
+           ...inputs,
+           [name] : value,
+       });
+    };
     const onReset = () => {
+        setInputs({
+            name : '',
+            nickname : '',
+        })
  
     }
     return (
         <div>
-            <input name="name" placeholder="이름" onChange={onChange}/>
-            <input name="nickname" placeholder="닉네임" onChange={onChange} />
+            <input 
+                name="name" 
+                placeholder="이름" 
+                onChange={onChange}
+                value={name}
+            />
+            <input 
+                name="nickname" 
+                placeholder="닉네임" 
+                onChange={onChange} 
+                value={nickname}
+            />
             <button onClick={onReset}>초기화</button>
             <div>
                 <b>값 : </b>
-                이름 (닉네임)
+                {name} {nickname}
             </div>
         </div>
     );
