@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function InputSample () {
     const [inputs, setInputs] = useState({
@@ -6,24 +6,27 @@ function InputSample () {
         nickname : ''
     });
 
-    const {name, nickname} = inputs;
+    const nameInput = useRef(); // 함수 호출
+
+    const {name, nickname} = inputs; //비구조화 할당을 통해 값 추출
  
     const onChange = (e) => {
         const  { name , value } = e.target;
-         // console.log(e.target.name);  네임값
-         // console.log(e.target.value);  닉네임값 
-       setInputs ({
+         // 1. e.target에서 name과 value를 추출
+         // 2. console.log(e.target.name);  네임값
+         // 3. console.log(e.target.value);  닉네임값 
+        setInputs ({
            ...inputs,
            [name] : value,
-       });
+        });
     };
     const onReset = () => {
         setInputs({
             name : '',
             nickname : '',
-        })
- 
-    }
+        });
+        nameInput.current.focus();
+    };
     return (
         <div>
             <input 
@@ -31,6 +34,7 @@ function InputSample () {
                 placeholder="이름" 
                 onChange={onChange}
                 value={name}
+                ref={nameInput}
             />
             <input 
                 name="nickname" 
