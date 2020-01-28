@@ -12,13 +12,13 @@ function User({ user, onRemove, onToggle}) {
     // }, [deps]);
 
     useEffect (() => {
-        console.log('user값이 설정됨');
-        console.log(user);
+        // console.log('user값이 설정됨');
+        // console.log(user);
         
         return () => {
         // 뒷정리 함수 (Cleanup 함수)
-            console.log('user값이 바뀌기 전');
-            console.log(user); 
+            // console.log('user값이 바뀌기 전');
+            // console.log(user); 
         }
         // deps를 어떻게 설정하느냐에 따라 값이 바뀌기 전, 바뀐 후에도 호출이 된다.
     }, [user]); 
