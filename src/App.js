@@ -24,17 +24,20 @@ function App() {
     {
         id : 1,
         username : 'hansaemgo',
-        email : 'hansaemgo@gmail.com'
+        email : 'hansaemgo@gmail.com',
+        active: true
     },
     {
         id : 2,
         username : 'daehyengo',
-        email : 'daehyengo@naver.com'
+        email : 'daehyengo@naver.com',
+        active : false
     },
     {
         id : 3,
         username : 'hannago',
-        email : 'hannago@gmail.com'
+        email : 'hannago@gmail.com', 
+        active : false
     }
 ]);
 
@@ -64,7 +67,14 @@ const onCreate = () => {
     // = user.id 가 id 인 것을 제거함
     setUsers(users.filter(user=> user.id !== id));
   }
-
+  
+  const onToggle = id => {
+    setUsers(users.map(
+      user => user.id === id 
+        ? { ...user, active: !user.active } 
+        :  user 
+    ));
+  }
 
 
   return( 
@@ -75,7 +85,7 @@ const onCreate = () => {
         onChange={onChange}
         onCreate={onCreate}
     />
-    <UserList users={users} onRemove={onRemove}/>
+    <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
     </>
   );
 }
