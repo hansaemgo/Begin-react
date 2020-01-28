@@ -119,6 +119,22 @@
 ### 14. 배열에 항목 수정하기
     - 배열의 불변성을 지키면서 배열을 업데이트 할때도 map 함수 사용
     - id값을 비교해서 id가 다르다면 그대로 두고 같다면 active 반전
+  
+### 15. useEffect를 사용하여 마운트/언마운트/업데이트시 할 작업설정
+    - {useEffect} : 컴포넌트가 나타날때 사라질때 , 특정Props가 바뀔때, 특정 작업을 처리
+    -  useEffect 첫번째 파라미터는 함수, 두번째 파라미터는 의존값이 들어있는 배열 [deps]
+    -  비어있는 deps라면 컴포넌트가 처음에 나타날때만 함수호출
+    -  함수 반환 => cleanup 함수 deps 비어있는 겅우 컴포넌트가 사라질때 cleanup 함수 호출
+      
+    -  마운트시 주 작업
+        1. Props -> State (props 로 받은 컴포넌트의 로컬상태로 설정)
+        2. 외부 API요청 (REST API)
+        3. 라이브러리 사용 (D3, Video.js)
+        4. setInterval을 통한 반복작업 또는 setTimeout을 통한 작업예약
+   
+    - 언마운트시 주 작업 
+        1. setInterval, setTimeout을 사용하여 등록한 작업들 Clear하기
+        2. 라이브러리 인스턴스 제거 
 
 
 
