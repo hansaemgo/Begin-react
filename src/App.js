@@ -3,25 +3,24 @@ import UserList from './UserList';
 import CreateUser from './CreateUser';
 
 
-
 function App() {
-
-  const [inputs, setInputs] = useSteate({
+  const [inputs, setInputs] = useState({    //사용할 상태 설정
     username : '',
-    email: ''
-  })
+    email :  '',
+  }); 
 
   const { username, email } = inputs;
   
   const onChange = e => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setInputs({
       ...inputs,
-      [name]:value
+      [name] : value
     });
-  } ;
+  };
 
-  const users = [
+  // useState로 감싸서 컴포넌트의 성태로서 관리할수 있도록 한다
+  const [ users, setUsers ] = useState([         
     {
         id : 1,
         username : 'hansaemgo',
@@ -29,41 +28,47 @@ function App() {
     },
     {
         id : 2,
-        username : 'daehyungo',
-        email : 'daehyungo@gmail.com'
+        username : 'daehyengo',
+        email : 'daehyengo@naver.com'
     },
     {
         id : 3,
         username : 'hannago',
         email : 'hannago@gmail.com'
     }
-];
+]);
 
-  const nextId = useRef(4);
+const nextId = useRef(4); // 어떠한 변수를 계속 기억하고 싶을때
 
-  const oncreate = () => {
-    setinpus ({
-        username : '',
-        email: ''
+const onCreate = () => {
+  const user = {
+    id : nextId.current,
+    username , 
+    email
+  };
 
-    });
-
-    console.log(nextId.current); // 4 
-    nextId.current += 1;
-
-  }
-
-  return (    
+  // 불변성을 지키면서 배열에 새 항목을 추가하는 방법 
+  // 1. spread연산자사용
+  // 2. concat 사용
+  setUsers([...users, user ]);
+  setInputs({
+    username : '',
+    email: ''
+  });
+  console.log(nextId.current); //4
+  nextId.current += 1;
+};
+  return( 
     <>
-    <CreateUser
-      username={username}
-      email={email}
-      onChange={onChange}
-      onCreate={onCreate}
+    <CreateUser 
+        username={username} 
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
     />
     <UserList users={users}/>
     </>
-  )
+  );
 }
 
 export default App;

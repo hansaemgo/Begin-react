@@ -97,11 +97,18 @@
     - 하나의 컴포넌트에 두개의 컴포넌트도 상관 없음 
     - 고정적이지 않은 배열을 염두해 배열의 내장함수 map사용
     - 배열을 렌더링 할 때에는 key (고유값)라는 props 를 설정
+    - ** map : const square = n => n * n;
+    - ** map : const squared = array.map(square);s
   
 ### 11. useRef로 컴포넌트 안의 변수 만들기 
     - useRef 특정DOM 선택 기능외 컴포넌트 안에서 조회 및 수정할수 있는 변수의 값을 관리할 수 있다.
     - useRef로 관리하는 변수는 값이 바뀐다고 해서 컴포넌트가 리렌더링 되지 않는다. 
     - setTimeout, 외부라이브러리에 의한 인스턴스, 스크롤 위치
     - 새 항목에서 추가할 고유 아이디값을 관리하기위한 용도
+    - 배열에 변화를 줄때도 불변성을 지켜주어야 한다. push splice sort X
+ 
+### 12. 배열에 항목 추가하기
+    - 불변성을 지키면서 배열에 새 항목을 추가하는 방법 
+        1. spred 연산자사용  setUsers([...users, user ]);
+        2. concat사용   setUsers(users.concat(user));
 
-### 12. 
