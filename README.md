@@ -111,4 +111,9 @@
     - 불변성을 지키면서 배열에 새 항목을 추가하는 방법 
         1. spred 연산자사용  setUsers([...users, user ]);
         2. concat사용   setUsers(users.concat(user));
+   
+### 13. 배열에 항목 제거하기
+    - 불변성을 지키면서 특정원소를 배열에서 제거하기 위해서 filter사용 
+    ex)  setUsers(users.filter(user=> user.id !== id));
+
 
