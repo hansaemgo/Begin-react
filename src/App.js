@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -16,13 +16,13 @@ function App() {
 
   const { username, email } = inputs;
   
-  const onChange = e => {
+  const onChange = useCallback(e => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name] : value
     });
-  };
+  }, [inputs]);
 
   // useState로 감싸서 컴포넌트의 성태로서 관리할수 있도록 한다
   const [ users, setUsers ] = useState([         
@@ -48,13 +48,12 @@ function App() {
 
 const nextId = useRef(4); // 어떠한 변수를 계속 기억하고 싶을때
 
-const onCreate = () => {
+const onCreate = useCallback(() => {
   const user = {
     id : nextId.current,
     username , 
     email
   };
-
   // 불변성을 지키면서 배열에 새 항목을 추가하는 방법 
   // 1. spread연산자사용
   // 2. concat 사용
@@ -65,7 +64,7 @@ const onCreate = () => {
   });
   console.log(nextId.current); //4
   nextId.current += 1;
-};
+}, [username, email, users]);
 
   const onRemove = id => {
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
@@ -73,13 +72,13 @@ const onCreate = () => {
     setUsers(users.filter(user=> user.id !== id));
   }
   
-  const onToggle = id => {
+  const onToggle = useCallback(id => {
     setUsers(users.map(
       user => user.id === id 
         ? { ...user, active: !user.active } 
         :  user 
     ));
-  }
+  }, [users]);
 
   const count = useMemo(() => countActiveUsers(users), [users] );
 
