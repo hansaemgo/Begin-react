@@ -3,6 +3,7 @@ import React from 'react';
 // onChange - input값 바뀔때 처리되는 함수
 // onCreate - 버튼을 눌렀을때 새로운 항목 등록해주는 함수
 function CreateUser ({ username, email, onChange, onCreate}) { // 총 4개프롭스
+    console.log('CreateUser');
     return(
         <div>
             <input 
@@ -22,4 +23,4 @@ function CreateUser ({ username, email, onChange, onCreate}) { // 총 4개프롭
     );
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);

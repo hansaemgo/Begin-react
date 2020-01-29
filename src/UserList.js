@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 
 
 // 하나의 컴포넌트를 더 선언해준다 (props 로 user값을 받아온다)
-function User({ user, onRemove, onToggle}) {
+// React.memo로 리렌더링 최적화 
+const User = React.memo(function User({ user, onRemove, onToggle}) {
     const {username, email, id, active } = user;
     // useEffect(() => {
     //     console.log('컴포넌트가 화면에 나타남');
@@ -38,7 +39,7 @@ function User({ user, onRemove, onToggle}) {
             <button onClick = {() => onRemove(id)}>삭제</button>
         </div> 
      );
-}
+});
 
 function UserList ({ users, onRemove, onToggle }) {
     return (
@@ -55,4 +56,4 @@ function UserList ({ users, onRemove, onToggle }) {
     );
 }
 
-export default UserList;
+export default React.memo(UserList, (prevProps,nextProps) => prevProps.users === nextProps.users);
