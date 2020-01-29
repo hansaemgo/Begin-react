@@ -182,3 +182,9 @@
     - 특정 함수를 여러개의 컴포넌트를  거쳐서 전달하는 작업을 줄이기 위함
     - Context 만들때 createContext(provider설정 안했을때 기본 값)
     - Context 안에 Provider 컴포넌트 사용시 value값 설정 ex) value='GOOD'
+  
+### 23. UserDispatch 만들어서 App 컴포넌트에 적용
+    - onToggle, onRemove를 User컴포넌트에게 주기위해 UserList를 거쳐간다. 이과정 줄이기
+    - 디스패치만 따로 넣어준다
+    - 렌더링 하는 곳에서 UserDispatch.provider 사용 
+    - Context API 를 사용해서 dispatch 를 어디서든지 조회해서 사용가능
