@@ -188,3 +188,8 @@
     - 디스패치만 따로 넣어준다
     - 렌더링 하는 곳에서 UserDispatch.provider 사용 
     - Context API 를 사용해서 dispatch 를 어디서든지 조회해서 사용가능
+  
+### 24. Immer 라이브러리 사용
+    - yarn add immer - import produce from 'immer' - window.produce = produce;
+    - 불변성을 유지해 주면서 업데이트가 가능하다
+  
