@@ -177,3 +177,8 @@
 ### 21. Custom Hook만들어서 사용하기    
     - 컴포넌트를 만들 때, 반복되는 로직이 발생하는 경우 커스텀 Hook만들어서 재사용
     - custom Hook을 만들때는 보통 use라는 키워드로 시작하고 그 안에 함수작성.
+
+### 22. Context API를 사용한 전역 값 관리   
+    - 특정 함수를 여러개의 컴포넌트를  거쳐서 전달하는 작업을 줄이기 위함
+    - Context 만들때 createContext(provider설정 안했을때 기본 값)
+    - Context 안에 Provider 컴포넌트 사용시 value값 설정 ex) value='GOOD'
