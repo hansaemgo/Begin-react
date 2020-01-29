@@ -153,4 +153,8 @@
     - Props가 바뀔때 리렌더링 (eqps에 users가 들어있기때문에 배열이 바뀔때마다 새로 리렌더링된다)
     - useState의 함수형 : setUsers에 등록하는 콜백함수의 파라미터에서 최선users를 참조할 수 있기 때문에 deps에 users넣지 않아도 된다.
 
-
+### 19. useReducer Hook 사용하여 상태 업데이트 로직 분리
+    - 이전까지 useState이용해서 상태 업데이트 useReducer를 사용하여 외부로 분리도 가능하며 다른파일에 작성 후 불러와서 사용 할 수도 있다.
+    - userReducer {state, action} 현재상태와 액션을 파라미터로 받아와서 새로운 상태 반환
+    - 액션객체 : 참조할때 쓰는 객체 (업데이를 위한 정보를 가지고 있다. 주로 type값을 지닌 객체형태)
+    - dispatch : 액션을 발생시키는 함수, 주로 이런형태로 사용 => dispatch({ type: 'INCREMENT' })
