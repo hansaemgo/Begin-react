@@ -158,3 +158,17 @@
     - userReducer {state, action} 현재상태와 액션을 파라미터로 받아와서 새로운 상태 반환
     - 액션객체 : 참조할때 쓰는 객체 (업데이를 위한 정보를 가지고 있다. 주로 type값을 지닌 객체형태)
     - dispatch : 액션을 발생시키는 함수, 주로 이런형태로 사용 => dispatch({ type: 'INCREMENT' })
+
+### 20. App에서 useReducer 사용하기
+    1. 사용 할 초기상태를 컴포넌트 밖에 선언 (const initialState = {...})
+    2. App 컴포넌트 안에 모든 로직 지우기
+    3. 내부의 Props 설정해 준것도 지운다 users배열은 임시로
+    4. {useState} 삭제 {useReducer} 추가
+    5. reducer 함수 만들기
+    6. 비구조 할당을 통해 분해한후 props로 전달
+    7. onChange 함수 구현 (useCallback사용, name과 value는 e.target값 받아옴 )
+    8. 현재 상태에 따라 input에 있는 특정 값으로 변경하도록 redecer구현 
+    9. onCreate 함수구현 (username, email 기존상태에 의존 => deps 넣어줘야함)
+    10. nextId 값 관리(useRef) 기존에 3개 등록되어있으므로 기본값 4
+    11. onToggle, onRemove 만들기
+    - 값이 단순할때 useState 가 편리
