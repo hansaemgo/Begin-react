@@ -172,3 +172,8 @@
     10. nextId 값 관리(useRef) 기존에 3개 등록되어있으므로 기본값 4
     11. onToggle, onRemove 만들기
     - 값이 단순할때 useState 가 편리
+
+
+### 21. Custom Hook만들어서 사용하기    
+    - 컴포넌트를 만들 때, 반복되는 로직이 발생하는 경우 커스텀 Hook만들어서 재사용
+    - custom Hook을 만들때는 보통 use라는 키워드로 시작하고 그 안에 함수작성.
