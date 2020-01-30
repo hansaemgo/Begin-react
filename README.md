@@ -192,4 +192,16 @@
 ### 24. Immer 라이브러리 사용
     - yarn add immer - import produce from 'immer' - window.produce = produce;
     - 불변성을 유지해 주면서 업데이트가 가능하다
+    - 업데이트 로직이 조금 까다로운 경우에 사용해주는 것이 좋다
   
+### 25. 클래스형 컴포넌트
+    - 요즘 잘 사용하지 않는 형태 (컴포넌트를 선언하는 또 다른 방식)
+    - render()메서드가 꼭 필요하다
+    - 꼭 필요할때 혹은 유지보수에 사용 하는 것이 옳은 방법이다.
+    - class 컴포넌트이름 extends Component { render }
+    - 커스텀 메서드 - 클래스 내부에 함수 선언하는 것 (내부에 종속된 함수)
+    - 메서드와 컴포넌트 인스턴스의 관계가 (this 연결 끊김) 해결 하는 방법
+        1. 클래스 생성자 메서드에먼저 바인딩 해줌 (가장 일반적 방법)
+        constructor(props){ super (props)}; this.handleIncrease= this.handIncrease.bind(this);
+        2. 커스텀 메스트를 선언할때 화살표함수 문법으로 작성
+    - 상태 업데이트시 : this.state ( 꼭 객체 형태로 만들어줘야함 )
