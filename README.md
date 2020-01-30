@@ -205,3 +205,18 @@
         constructor(props){ super (props)}; this.handleIncrease= this.handIncrease.bind(this);
         2. 커스텀 메스트를 선언할때 화살표함수 문법으로 작성
     - 상태 업데이트시 : this.state ( 꼭 객체 형태로 만들어줘야함 )
+  
+### 26. LifeCycle 메서드
+    - 마운트 될때
+        1. constructor : 생성될때 컴포넌트가 만들어지면 가장 먼저 실행되는 메서드
+        2. getDerivedStateFromProps : props 로 받아온 것을 state 에 넣어주고 싶을 때 
+        3. rander : 컴포넌트를 렌더링 하는 메서드
+        4. componentDidMount : 컴포넌트의 첫번째 렌더링이 마치고 나면 호출되는 메서드
+    - 업데이트 될 때
+        1. getDerivedStateFromProps : 컴포넌트의 props 나 state 가 바뀌었을때도 이 메서드가 호출
+        2. shouldComponentUpdate :  메서드는 컴포넌트가 리렌더링 할지 말지를 결정하는 메서드 (최적화 하는 용도)
+        3. render
+        4. getSnapshotBeforeUpdate : 컴포넌트에 변화가 일어나기 직전의 DOM 상태를 가져와서 특정 값을 반환 ( 스크롤 위치 담아두기 )
+        5. componentDidUpdate : 리렌더링이 마치고, 화면에 우리가 원하는 변화가 모두 반영되고 난 뒤 호출되는 메서드
+    - 언마운트 될 때
+        1. componentWillUnmount :  컴포넌트가 화면에서 사라지기 직전에 호출
