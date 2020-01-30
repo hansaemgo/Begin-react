@@ -25,9 +25,6 @@
 
 // export default Counter;
 
-
-
-
 // import React, { useReducer } from 'react';
 
 // function reducer(state, action) {
@@ -41,7 +38,7 @@
 //     }
 // }
 
-// function Counter() { 
+// function Counter() {
 
 //     const [number, dispatch] = useReducer(reducer, 0);
 
@@ -66,9 +63,6 @@
 
 // export default Counter;
 
-
-
-
 import React, { Component } from 'react';
 
 class Counter extends Component {
@@ -80,21 +74,21 @@ class Counter extends Component {
     // }
 
     state = {
-        counter : 0,
-        fixed : 1
-    }
+        counter: 0,
+        fixed: 1,
+    };
     handleIncrease = () => {
-        this.setState ({
-            counter : this.state.counter + 1
-        })
-    }
+        this.setState({
+            counter: this.state.counter + 1,
+        });
+    };
     handleDecrease = () => {
-        this.setState ({
-            counter : this.state.counter - 1
-        })
-    }
+        this.setState({
+            counter: this.state.counter - 1,
+        });
+    };
 
-    render (){
+    render() {
         return (
             <div>
                 <h1>{this.state.counter}</h1>
@@ -102,9 +96,8 @@ class Counter extends Component {
                 <button onClick={this.handleDecrease}>-1</button>
                 <p>고정된 값 : {this.state.fixed}</p>
             </div>
-        )
+        );
     }
 }
-
 
 export default Counter;
