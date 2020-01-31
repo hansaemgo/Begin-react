@@ -249,3 +249,7 @@
 
     - package.json에서 "rules" 값을 설정
     - ex) "rules": { "react/jsx-filename-extension": 0 }
+
+### 28. Snippet 만들기
+
+    - ${TM_FIMENAME_BASE} 파일 만들때 이름 설정하기
